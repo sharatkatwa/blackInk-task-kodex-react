@@ -1,68 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  .font-geist {
+    font-family: "Geist", sans-serif;
+  }
+  .font-geist-mono {
+    font-family: "Geist Mono", monospace;
+  }
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg: #f8f8f8;
+  --text: #0b0b0b;
+  --primary: 0 86 164;
+  --muted: 100 100 100;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.dark {
+  --bg: #040609;
+  --text: #eeeeee;
+  --primary: 0 140 117;
+  --muted: 100 100 100;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+
+@theme{
+  --color-primary: rgb(var(--primary));
+  --color-muted: rgb(var(--muted))
+}
+.btn {
+  @apply px-4 py-2 flex items-center justify-center rounded-lg transition-colors;
+}
+.form-card{
+  @apply flex flex-col gap-6 rounded-xl border border-gray-500/30 py-6 px-6 shadow-sm w-full max-w-md;
+}
+.input-label{
+  @apply font-semibold text-sm capitalize;
+}
+.input{
+  @apply outline-none border border-gray-500/20 focus:ring-3 focus:ring-primary/50 transition-all px-3 py-1 rounded-lg;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.btn-primary {
+  @apply bg-primary text-white font-semibold capitalize py-2 px-4 rounded-lg hover:bg-primary/90 transition-all;
+  /* @apply dark:bg-blue-400 dark:text-black dark:hover:bg-blue-500; */
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.btn-sec{
+  @apply hover:bg-green-600/80 dark:hover:bg-green-900/80 font-semibold rounded-lg transition-all hover:text-white
 }
