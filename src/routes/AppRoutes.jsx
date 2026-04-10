@@ -37,7 +37,7 @@ const AppRoutes = () => {
           
         },
         {
-          path: "blogs/:id",
+          path: "blog/:id",
           element: <Blogs />,
         },
       ],
