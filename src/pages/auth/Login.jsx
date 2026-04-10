@@ -1,10 +1,10 @@
-import React from 'react'
-import { UseAuth } from '../../context/AuthContext';
-import { useForm } from 'react-hook-form';
-import { PenLine } from 'lucide-react';
-import { NavLink } from 'react-router';
+import React from "react";
+import { UseAuth } from "../../context/AuthContext";
+import { useForm } from "react-hook-form";
+import { PenLine } from "lucide-react";
+import { NavLink } from "react-router";
 const Login = () => {
-  const {login} = UseAuth()
+  const { login } = UseAuth();
   const {
     register,
     handleSubmit,
@@ -13,7 +13,8 @@ const Login = () => {
   } = useForm();
 
   const handleInput = (data) => {
-    login(data)
+    login(data);
+    reset();
   };
   return (
     <main className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12">
@@ -28,7 +29,6 @@ const Login = () => {
           <div className="text-muted-foreground text-sm">Sign in to your account to continue</div>
         </div>
         <form className="flex flex-col gap-6" onSubmit={handleSubmit(handleInput)}>
-         
           <div className=" flex flex-col gap-2">
             <label htmlFor="email" className="input-label">
               Email
@@ -55,7 +55,7 @@ const Login = () => {
               autoComplete="current-password"
             />
           </div>
-          
+
           <p className="text-red-500">
             {errors.name && <span>{errors.name.message}, </span>}
             {errors.email && <span>{errors.email.message}, </span>}
@@ -67,10 +67,15 @@ const Login = () => {
             Sign in
           </button>
         </form>
-        <p>don't have an account? <NavLink className='text-primary' to={'/auth/signup'}>register here</NavLink></p>
+        <p>
+          don't have an account?{" "}
+          <NavLink className="text-primary" to={"/auth/signup"}>
+            register here
+          </NavLink>
+        </p>
       </div>
     </main>
   );
-}
+};
 
-export default Login
+export default Login;

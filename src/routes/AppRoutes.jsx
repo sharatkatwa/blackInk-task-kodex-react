@@ -9,6 +9,8 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/auth/Login";
 import Signup from "../pages/auth/Signup";
 import Dashboard from "../pages/Dashboard";
+import NewArticlePage from "../pages/NewArticlePage";
+import EditArticlePage from "../pages/EditArticlePage";
 
 const AppRoutes = () => {
   const allRoutes = createBrowserRouter([
@@ -23,6 +25,16 @@ const AppRoutes = () => {
         {
           path: "dashboard",
           element: <Dashboard />,
+        },
+        {
+          path: "dashboard/new",
+          element: <NewArticlePage />,
+          
+        },
+        {
+          path: "dashboard/edit/:id",
+          element: <EditArticlePage />,
+          
         },
         {
           path: "blogs/:id",

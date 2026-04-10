@@ -3,7 +3,7 @@ import React from "react";
 
 const BlogCards = () => {
   return (
-    <div className="border border-gray-500/20 bg-muted/10 rounded-lg py-5 px-5 hover:border-primary hover:shadow-primary/10 group">
+    <div className="border border-gray-500/10 bg-gray-500/5 rounded-lg py-5 px-5 hover:border-primary shadow hover:shadow-xl hover:shadow-primary/20 group">
       <div className="header mb-5 ">
         <div className="tags flex items-start justify-start flex-wrap gap-3 mb-5">
           <div className="rounded bg-gray-500/20 rounded-full px-2 py-1 text-xs font-medium">noting</div>

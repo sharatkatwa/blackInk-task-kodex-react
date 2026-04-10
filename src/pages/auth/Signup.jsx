@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { NavLink } from "react-router";
 import { UseAuth } from "../../context/AuthContext";
 import Navbar from "../../components/Navbar";
+import { nanoid } from "nanoid";
 
 const Signup = () => {
   const { registerUser } = UseAuth();
@@ -16,11 +17,12 @@ const Signup = () => {
   } = useForm();
 
   const handleInput = (data) => {
-    const filterdData = { name: data.name, email: data.email, password: data.password, role: data.role };
+    const filterdData = { name: data.name, email: data.email, password: data.password, role: data.role, id: nanoid() };
     registerUser(filterdData);
+    reset();
   };
+
   return (
-  
     <main className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12">
       <div data-slot="card" className="bg-card text-card-foreground form-card">
         <div data-slot="card-header" className="mx-auto text-center">
@@ -143,8 +145,6 @@ const Signup = () => {
         </p>
       </div>
     </main>
-  
-    
   );
 };
 

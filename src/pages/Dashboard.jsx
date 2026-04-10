@@ -1,4 +1,4 @@
-import { Ellipsis, Plus } from "lucide-react";
+import { Ellipsis, File, FileText, Plus } from "lucide-react";
 import React from "react";
 import { NavLink } from "react-router";
 import DashboardCard from "../components/DashboardCard";
@@ -42,44 +42,24 @@ const Dashboard = () => {
       
       
       <div className="flex flex-col gap-5">
-          {/* <div className="w-full border rounded-xl bg-gray-500/10 border-gray-500/20 flex items-center justify-between p-4">
-            <div className="right space-y-2">
-            <div className="flex items-center gap-2">
-              <h3 className="truncate text-xl font-semibold">this is the title of the article </h3>
-              <span className="flex items-center justify-center bg-primary rounded-md font-medium text-black text-sm px-2 ">Published</span>
-            </div>
-            <h4 className="truncate text-muted text-md">this is small description of blog site</h4>
-            <p class=" text-xs text-muted">Last updated: Apr 8, 2026</p>
-            </div>
-            <div className="left p-2 hover:bg-primary/70 hover:text-black rounded-xl"><Ellipsis size={20} /></div>
+         
+          <DashboardCard />
+          <DashboardCard />
+          <DashboardCard />
+          <DashboardCard />
+          <DashboardCard />
+          <div className="w-full border rounded-xl text-center bg-gray-500/5 border-gray-500/20 flex flex-col items-center justify-center gap-2 px-4 py-10">
+            <FileText size={50} className="mb-5"/>
+            <h2 className="font-bold text-xl font-geist">No articles yet</h2>
+            <p className="text-muted">Start writing your first article</p>
+             <NavLink
+          to={"/dashboard/new"}
+          className="inline-flex items-center justify-center gap-2 whitespace-nowrap btn-primary active:scale-[.95]"
+        >
+          <Plus size={24} />
+          Create Article
+        </NavLink>
           </div>
-          <div className="w-full border rounded-xl bg-gray-500/10 border-gray-500/20 flex items-center justify-between p-4">
-            <div className="right space-y-2">
-            <div className="flex items-center gap-2">
-              <h3 className="truncate text-xl font-semibold">this is the title of the article </h3>
-              <span className="flex items-center justify-center bg-primary rounded-md font-medium text-black text-sm px-2 ">Published</span>
-            </div>
-            <h4 className="truncate text-muted text-md">this is small description of blog site</h4>
-            <p class=" text-xs text-muted">Last updated: Apr 8, 2026</p>
-            </div>
-            <div className="left p-2 hover:bg-primary/70 hover:text-black rounded-xl"><Ellipsis size={20} /></div>
-          </div>
-          <div className="w-full border rounded-xl bg-gray-500/10 border-gray-500/20 flex items-center justify-between p-4">
-            <div className="right space-y-2">
-            <div className="flex items-center gap-2">
-              <h3 className="truncate text-xl font-semibold">this is the title of the article </h3>
-              <span className="flex items-center justify-center bg-primary rounded-md font-medium text-black text-sm px-2 ">Published</span>
-            </div>
-            <h4 className="truncate text-muted text-md">this is small description of blog site</h4>
-            <p class=" text-xs text-muted">Last updated: Apr 8, 2026</p>
-            </div>
-            <div className="left p-2 hover:bg-primary/70 hover:text-black rounded-xl"><Ellipsis size={20} /></div>
-          </div> */}
-          <DashboardCard />
-          <DashboardCard />
-          <DashboardCard />
-          <DashboardCard />
-          <DashboardCard />
          
       </div>
     </div>

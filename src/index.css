@@ -41,11 +41,14 @@
 .form-card{
   @apply flex flex-col gap-6 rounded-xl border border-gray-500/30 py-6 px-6 shadow-sm w-full max-w-md;
 }
+.article-form-card{
+  @apply flex flex-col gap-6 rounded-xl border border-gray-500/30 py-6 px-6 shadow-sm w-full max-w-5xl;
+}
 .input-label{
   @apply font-semibold text-sm capitalize;
 }
 .input{
-  @apply outline-none border border-gray-500/20 focus:ring-3 focus:ring-primary/50 transition-all px-3 py-1 rounded-lg;
+  @apply outline-none bg-gray-500/5 border border-gray-500/20 focus:ring-3 focus:ring-primary/50 px-3 py-1 rounded-lg transition-[color,box-shadow] duration-300;
 }
 
 
