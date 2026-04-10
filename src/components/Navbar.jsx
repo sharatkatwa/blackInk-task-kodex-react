@@ -6,12 +6,12 @@ import { useNavigate } from "react-router";
 import DropDownNav from "./ui/DropDownNav";
 
 const Navbar = () => {
-  const { LoggedInUser, logoutFun } = UseAuth();
+  const { LoggedInUser } = UseAuth();
   const navigate = useNavigate();
   const [openDD, setOpenDD] = useState(false);
   return (
     <div className=" sticky  top-0 z-20 inset-x-0 backdrop-blur-xl border-b border-gray-500/40 h-16  ">
-      <div className="max-w-7xl px-6 h-full mx-auto flex items-center justify-between">
+      <div className="max-w-7xl px-2 sm:px-6 h-full mx-auto flex items-center justify-between">
         <div className="left flex items-center gap-2">
           <PenLine className="text-primary" size={28} />
           <h2
@@ -32,7 +32,7 @@ const Navbar = () => {
                 {LoggedInUser.name[0]}
                 
               </div>
-              <p className="font-semibold">{LoggedInUser.name}</p>
+              <p className="font-semibold hidden sm:block">{LoggedInUser.name}</p>
               {openDD && LoggedInUser && (
                 // <div className="relative max-w-7xl bg-red-500 z-80">
 

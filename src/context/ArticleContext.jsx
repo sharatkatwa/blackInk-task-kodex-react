@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { UseAuth } from "./AuthContext";
 
 const Art = createContext();

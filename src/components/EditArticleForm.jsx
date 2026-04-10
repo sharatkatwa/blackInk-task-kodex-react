@@ -2,12 +2,11 @@ import { Save, Send, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UseArt } from "../context/ArticleContext";
-import { nanoid } from "nanoid";
-import { Navigate, useNavigate, useParams } from "react-router";
+import {  useNavigate, useParams } from "react-router";
 
 const EditArticleForm = () => {
   const { id } = useParams();
-  const { saveArticle, getArticle, updateArticle } = UseArt();
+  const {  getArticle, updateArticle } = UseArt();
 
   const article = getArticle(id);
 
