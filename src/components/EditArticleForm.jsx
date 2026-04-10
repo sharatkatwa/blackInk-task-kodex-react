@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UseArt } from "../context/ArticleContext";
 import { nanoid } from "nanoid";
-import { useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 
 const EditArticleForm = () => {
   const { id } = useParams();
-  const { saveArticle, getArticle } = UseArt();
+  const { saveArticle, getArticle, updateArticle } = UseArt();
 
   const article = getArticle(id);
 
@@ -56,10 +56,13 @@ const EditArticleForm = () => {
     setValue("tags", tags);
   }, [tags, setValue]);
 
+  const navigate = useNavigate();
+  
   const handleData = (data) => {
-    const id = nanoid();
-    const articleData = { ...data, id, published: isPublish };
-    saveArticle(articleData);
+    const articleData = { ...article, ...data, published: isPublish };
+    updateArticle(articleData);
+    reset()
+    navigate("/dashboard");
   };
 
   return (

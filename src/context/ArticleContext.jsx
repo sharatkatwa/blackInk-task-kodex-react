@@ -19,12 +19,28 @@ export const ArticleProvider = ({ children }) => {
     console.log("publish data ==>", updatedArts);
     setArticles(updatedArts);
     localStorage.setItem("all arts", JSON.stringify(updatedArts));
+    
+    return
   };
-  
-  
-  const getArticle = (id) =>{
-    return articles.find(elem => elem.id === id)
-  }
+
+  const updateArticle = (data) => {
+    const artData = { ...data, date: formattedDate };
+    const updatedArts = articles.map((elem) => (artData.id === elem.id ? artData : elem));
+    setArticles(updatedArts);
+    localStorage.setItem("all arts", JSON.stringify(updatedArts));
+    
+    return;
+  };
+  const deleteArticle = (id) => {
+    const updatedArts = articles.filter((elem) => elem.id !== id);
+    setArticles(updateArticle);
+    localStorage.setItem("all arts", JSON.stringify(updatedArts));
+    return;
+  };
+
+  const getArticle = (id) => {
+    return articles.find((elem) => elem.id === id);
+  };
   //   const saveDraftFun = (data) => {
   //     const artData = { ...data, date: formattedDate, author: LoggedInUser };
   //     const updatedDraft = [...draftArt, artData];
@@ -32,7 +48,11 @@ export const ArticleProvider = ({ children }) => {
   //     setDraftArt(updatedDraft);
   //     localStorage.setItem("draft art", JSON.stringify(updatedDraft));
   //   };
-  return <Art.Provider value={{ saveArticle, articles, setArticles,getArticle }}>{children}</Art.Provider>;
+  return (
+    <Art.Provider value={{ saveArticle, articles, setArticles, getArticle, updateArticle, deleteArticle }}>
+      {children}
+    </Art.Provider>
+  );
 };
 
 export const UseArt = () => useContext(Art);

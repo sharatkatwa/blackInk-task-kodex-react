@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UseArt } from "../context/ArticleContext";
 import { nanoid } from "nanoid";
+import { useNavigate } from "react-router";
 
 const ArticleForm = () => {
   const {
@@ -45,10 +46,14 @@ const ArticleForm = () => {
     setValue("tags", tags);
   }, [tags, setValue]);
 
+  const navigate = useNavigate();
+
   const handleData = (data) => {
     const id = nanoid();
     const articleData = { ...data, id, published: isPublish };
     saveArticle(articleData);
+    reset();
+    navigate("/dashboard");
   };
 
   return (
