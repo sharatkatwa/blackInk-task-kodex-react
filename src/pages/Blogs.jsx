@@ -38,7 +38,7 @@ const Blogs = () => {
             <Clock size={20} /> 1 min read
           </span>
         </div>
-        <div className="prose prose-invert max-w-none font-geist">
+        <div className="prose max-w-none font-geist dark:prose-invert">
           <Markdown>{currentArticle.content}</Markdown>
         </div>
       </div>
