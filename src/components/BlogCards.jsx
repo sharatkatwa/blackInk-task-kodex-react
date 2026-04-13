@@ -9,7 +9,7 @@ const BlogCards = ({article}) => {
       <div className="top">
       <div className="header mb-5 ">
         <div className="tags flex items-start justify-start flex-wrap gap-3 mb-5">
-          {article.tags.map(elem =>(<div className="rounded bg-gray-500/20 rounded-full px-2 py-1 text-xs font-medium">{elem}</div>))}
+          {article.tags.map((elem,idx) =>(<div key={idx} className="rounded bg-gray-500/20 rounded-full px-2 py-1 text-xs font-medium">{elem}</div>))}
           
         </div>
         <h2 className="text-balance line-clamp-3 text-xl font-semibold leading-tight tracking-tight group-hover:text-primary">
